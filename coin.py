@@ -18,5 +18,7 @@ print(f"{data['symbol']} price is {data['price']}")
 buyPrice = 0.000249567
 amount = 400693.86
 data = requests.get(floki).json()
-print(f"{data['symbol']} price is {data['price']} pl={(data['price']-buyPrice)*amount}")
+pl = (data['price']-buyPrice)*amount
+# print(f"{data['symbol']} price is f{data['price']} pl=f{pl}")
+print(pl)
 
