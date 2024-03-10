@@ -7,6 +7,7 @@ btc = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
 wld = "https://api.binance.com/api/v3/ticker/price?symbol=WLDUSDT"
 ada = "https://api.binance.com/api/v3/ticker/price?symbol=ADAUSDT"
 floki = "https://api.binance.com/api/v3/ticker/price?symbol=FLOKIUSDT"
+mana = "https://api.binance.com/api/v3/ticker/price?symbol=FLOKIUSDT"
   
 # requesting data from url 
 data = requests.get(ada).json()
