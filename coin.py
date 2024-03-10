@@ -27,9 +27,9 @@ print(pl)
 
 # Bonk
 buyPrice = 0.0000326677
-amount = 40000000
+amount = 4000000
 data = requests.get(bonk).json()
 pl = (float(data['price'])-buyPrice)*amount
-print(f"{data['symbol']} price is f{data['price']} pl=f{pl}")
+print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
 print(pl)
 
