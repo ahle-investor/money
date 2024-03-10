@@ -16,6 +16,15 @@ print(f"{data['symbol']} price is {data['price']}")
 data = requests.get(wld).json()
 print(f"{data['symbol']} price is {data['price']}")
 
+# Floki
+buyPrice = 0.000249567
+amount = 400693.86
+data = requests.get(floki).json()
+pl = (float(data['price'])-buyPrice)*amount
+print(f"{data['symbol']} price is f{data['price']} pl=f{pl}")
+print(pl)
+
+# 
 buyPrice = 0.000249567
 amount = 400693.86
 data = requests.get(floki).json()
