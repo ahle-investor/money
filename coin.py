@@ -9,7 +9,11 @@ ada = "https://api.binance.com/api/v3/ticker/price?symbol=ADAUSDT"
 floki = "https://api.binance.com/api/v3/ticker/price?symbol=FLOKIUSDT"
 mana = "https://api.binance.com/api/v3/ticker/price?symbol=MANAUSDT"
 bonk = "https://api.binance.com/api/v3/ticker/price?symbol=BONKUSDT"
-  
+
+
+def getInfo():
+    pass
+
 # requesting data from url 
 data = requests.get(ada).json()
 print(f"{data['symbol']} price is {data['price']}")
