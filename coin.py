@@ -39,3 +39,14 @@ exitPl = (sellPrice-buyPrice)*amount
 print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
+
+# ADA
+buyPrice = 0.0000326677
+amount = 4000000
+data = requests.get(ada).json()
+pl = (float(data['price'])-buyPrice)*amount
+sellPrice = 0.000035
+exitPl = (sellPrice-buyPrice)*amount
+print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
+print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
+
