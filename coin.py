@@ -16,7 +16,10 @@ volumn24h = 'https://api.binance.com/api/v3/ticker/24hr'
 def getInfo():
     pass
 
-data = requests.get(ada).json()
+data = requests.get(volumn24h).json()
+sum = 0
+for item in data:
+    sum+=item['volumne']
 
 
 # requesting data from url 
