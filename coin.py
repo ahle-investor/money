@@ -64,7 +64,7 @@ print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 # XEC
 buyPrice = 0.000075*1.08
-amount = 13333738.5
+amount = 1333738.5
 data = requests.get(xec).json()
 pl = (float(data['price'])-buyPrice)*amount
 sellPrice = 0.0000639843
