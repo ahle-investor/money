@@ -10,6 +10,7 @@ floki = "https://api.binance.com/api/v3/ticker/price?symbol=FLOKIUSDT"
 mana = "https://api.binance.com/api/v3/ticker/price?symbol=MANAUSDT"
 bonk = "https://api.binance.com/api/v3/ticker/price?symbol=BONKUSDT"
 agix = "https://api.binance.com/api/v3/ticker/price?symbol=AGIXUSDT"
+xec = "https://api.binance.com/api/v3/ticker/price?symbol=XECXUSDT"
 
 
 def getInfo():
@@ -52,6 +53,16 @@ print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amo
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 # AGIX
+buyPrice = 1.2603
+amount = 56
+data = requests.get(agix).json()
+pl = (float(data['price'])-buyPrice)*amount
+sellPrice = 1.22
+exitPl = (sellPrice-buyPrice)*amount
+print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount}USDT pl={pl}")
+print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
+
+# XEC
 buyPrice = 1.2603
 amount = 56
 data = requests.get(agix).json()
