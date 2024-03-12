@@ -11,10 +11,13 @@ mana = "https://api.binance.com/api/v3/ticker/price?symbol=MANAUSDT"
 bonk = "https://api.binance.com/api/v3/ticker/price?symbol=BONKUSDT"
 agix = "https://api.binance.com/api/v3/ticker/price?symbol=AGIXUSDT"
 xec = "https://api.binance.com/api/v3/ticker/price?symbol=XECUSDT"
-
+volumn24h = 'https://api.binance.com/api/v3/ticker/24hr'
 
 def getInfo():
     pass
+
+data = requests.get(ada).json()
+
 
 # requesting data from url 
 data = requests.get(ada).json()
@@ -63,6 +66,16 @@ print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amo
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 # XEC
+buyPrice = 0.000075*1.08
+amount = 1333738.5
+data = requests.get(xec).json()
+pl = (float(data['price'])-buyPrice)*amount
+sellPrice = 0.0000639843
+exitPl = (sellPrice-buyPrice)*amount
+print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount}USDT pl={pl}")
+print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
+
+# BNX
 buyPrice = 0.000075*1.08
 amount = 1333738.5
 data = requests.get(xec).json()
