@@ -3,6 +3,7 @@ from datetime import datetime, timezone, timedelta
 import calendar
 import json
 import datetime as dt              # working with dates
+import requests
 
 def get_klines_iter(symbol, interval, start, end = None, limit=1000):
     # start and end must be isoformat YYYY-MM-DD
@@ -90,4 +91,5 @@ def get_binance_bars(symbol, interval, startTime, endTime):
  
     return df
 
-get_binance_bars('ETHUSDT', '1h', dt.datetime(2020, 1, 1), dt.datetime(2020, 2, 1))
+df = get_binance_bars('ETHUSDT', '1h', dt.datetime(2020, 1, 1), dt.datetime(2020, 2, 1))
+print(df)
