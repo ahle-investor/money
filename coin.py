@@ -63,8 +63,8 @@ print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amo
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 # XEC
-buyPrice = 1.2603
-amount = 56
+buyPrice = 0.000075*1.08
+amount = 13333738.5
 data = requests.get(agix).json()
 pl = (float(data['price'])-buyPrice)*amount
 sellPrice = 1.22
