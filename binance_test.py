@@ -1,6 +1,8 @@
 import pandas as pd
 from datetime import datetime, timezone, timedelta
 import calendar
+import json
+import datetime as dt              # working with dates
 
 def get_klines_iter(symbol, interval, start, end = None, limit=1000):
     # start and end must be isoformat YYYY-MM-DD
@@ -58,4 +60,33 @@ def get_klines_iter(symbol, interval, start, end = None, limit=1000):
 get_klines_iter('ADAUSDT', '1h', '2024-02-15', '2024-02-16T16:00:00')
 print("end") 
 
+def get_binance_bars(symbol, interval, startTime, endTime):
+ 
+    url = "https://api.binance.com/api/v3/klines"
+ 
+    startTime = str(int(startTime.timestamp() * 1000))
+    endTime = str(int(endTime.timestamp() * 1000))
+    limit = '1000'
+ 
+    req_params = {"symbol" : symbol, 'interval' : interval, 'startTime' : startTime, 'endTime' : endTime, 'limit' : limit}
+ 
+    df = pd.DataFrame(json.loads(requests.get(url, params = req_params).text))
+ 
+    if (len(df.index) == 0):
+        return None
+     
+    df = df.iloc[:, 0:6]
+    df.columns = ['datetime', 'open', 'high', 'low', 'close', 'volume']
+ 
+    df.open      = df.open.astype("float")
+    df.high      = df.high.astype("float")
+    df.low       = df.low.astype("float")
+    df.close     = df.close.astype("float")
+    df.volume    = df.volume.astype("float")
+    
+    df['adj_close'] = df['close']
+     
+    df.index = [dt.datetime.fromtimestamp(x / 1000.0) for x in df.datetime]
+ 
+    return df
 
