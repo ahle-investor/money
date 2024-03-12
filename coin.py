@@ -20,7 +20,7 @@ data = requests.get(volumn24h).json()
 sum = 0
 for item in data:
     sum+=float(item["volume"])
-print(sum)
+print(sum/1000000000000)
 
 # requesting data from url 
 data = requests.get(ada).json()
