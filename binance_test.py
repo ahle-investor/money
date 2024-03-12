@@ -90,3 +90,4 @@ def get_binance_bars(symbol, interval, startTime, endTime):
  
     return df
 
+get_binance_bars('ETHUSDT', '1h', dt.datetime(2020, 1, 1), dt.datetime(2020, 2, 1))
