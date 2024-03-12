@@ -25,7 +25,7 @@ for item in data:
 
 
 print(sum/1000000000000)
-print(performance/data.count())
+print(performance/len(data))
 
 # requesting data from url 
 data = requests.get(ada).json()
