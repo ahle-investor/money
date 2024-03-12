@@ -19,7 +19,7 @@ def getInfo():
 data = requests.get(volumn24h).json()
 sum = 0
 for item in data:
-    sum+=item
+    sum+=float(item["volume"])
 print(sum)
 
 # requesting data from url 
