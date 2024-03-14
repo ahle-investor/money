@@ -24,7 +24,7 @@ for item in data:
     performance+=float(item["priceChangePercent"])
 
 
-print(f"overview volumne: {sum/1000000000000}T %")
+print(f"overview volumne: {sum/1000000000000}K Millliards %")
 print(f"overview performance: {performance/len(data)*100}%")
 
 # requesting data from url 
