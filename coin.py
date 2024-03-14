@@ -25,7 +25,7 @@ for item in data:
 
 
 print(sum/1000000000000)
-print(f"{performance/len(data)*100}%")
+print(f"performance all tokens: {performance/len(data)*100}%")
 
 # requesting data from url 
 data = requests.get(ada).json()
