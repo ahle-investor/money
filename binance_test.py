@@ -58,7 +58,7 @@ def get_klines_iter(symbol, interval, start, end = None, limit=1000):
     df.to_csv(str(symbol)+'.csv', sep='\t', index=False)
 
 # get_klines_iter('WLDUSDT', '30m', '2024-02-15', '2024-02-16')
-get_klines_iter('ADAUSDT', '1h', '2024-02-15', '2024-02-16T16:00:00')
+get_klines_iter('BNBUSDT', '1h', '2024-03-15', '2024-03-16')
 print("end")
 
 def get_binance_bars(symbol, interval, startTime, endTime):
