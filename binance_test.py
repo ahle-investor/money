@@ -57,8 +57,12 @@ def get_klines_iter(symbol, interval, start, end = None, limit=1000):
 
     df.to_csv(str(symbol)+'.csv', sep='\t', index=False)
 
+def getPrices(symbol, date):
+    get_klines_iter(symbol+'USDT', '1h', '2024-03-15', '2024-03-16')
+
 # get_klines_iter('WLDUSDT', '30m', '2024-02-15', '2024-02-16')
 get_klines_iter('BNBUSDT', '1h', '2024-03-15', '2024-03-16')
+getPrices('FET', None)
 print("end")
 
 def get_binance_bars(symbol, interval, startTime, endTime):
@@ -93,4 +97,3 @@ def get_binance_bars(symbol, interval, startTime, endTime):
 
 df = get_binance_bars('BNBUSDT', '1h', dt.datetime(2020, 1, 1), dt.datetime(2020, 2, 1))
 print(df)
-df.view()
