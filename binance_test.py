@@ -59,7 +59,7 @@ def get_klines_iter(symbol, interval, start, end = None, limit=1000):
 
 # get_klines_iter('WLDUSDT', '30m', '2024-02-15', '2024-02-16')
 get_klines_iter('ADAUSDT', '1h', '2024-02-15', '2024-02-16T16:00:00')
-print("end") 
+print("end")
 
 def get_binance_bars(symbol, interval, startTime, endTime):
  
