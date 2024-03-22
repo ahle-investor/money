@@ -5,6 +5,6 @@ import sys
 def convert_string(my_str):
     return ' '.join(s[0]+s[1:] for s in my_str.split())
 
-for line in sys.stdin.split("\n"):
+for line in sys.stdin:
     print(line, end="\n")
     
