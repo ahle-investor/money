@@ -24,8 +24,8 @@ for item in data:
     performance+=float(item["priceChangePercent"])
 
 
-print(f"overview volumne: {sum/1000000000000}K Millliards %")
-print(f"overview performance: {performance/len(data)*100}%")
+print(f"all 24h volumn: {sum/1000000000000}K Millliards %")
+print(f"24h performance avg: {performance/len(data)*100}%")
 
 # requesting data from url 
 data = requests.get(ada).json()
