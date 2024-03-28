@@ -1,6 +1,7 @@
 # Import libraries 
 import json 
 import requests 
+import datetime
   
 # defining key/request url 
 btc = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
@@ -15,6 +16,12 @@ volumn24h = 'https://api.binance.com/api/v3/ticker/24hr'
 
 def getInfo():
     pass
+
+def getPrice(symbol,ago):
+    dt5min = datetime.datetime.now() - datetime.timedelta(minutes=5);
+    url = 'https://api.binance.com/api/v3/klines?symbol' + symbol + 'USDT&interval=1m&startTime=' + datetime.timestamp(dt5min)+ '&startTime=' + datetime.timestamp(dt5min)
+    data = requests.get(url).json()
+    return data[0][2]
 
 data = requests.get(volumn24h).json()
 sum = 0
@@ -61,7 +68,10 @@ pl = (float(data['price'])-buyPrice)*amount
 sellPrice = 0.000035
 exitPl = (sellPrice-buyPrice)*amount
 print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
+print(f"{data['symbol']} 5min at {data['price']} pl={exitPl}")
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
+
+
 
 # AGIX
 buyPrice = 1.2603
