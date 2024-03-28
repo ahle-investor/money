@@ -21,7 +21,7 @@ def getPrice(symbol,ago):
     dt5min = datetime.datetime.now() - datetime.timedelta(minutes=5);
     dt4min = datetime.datetime.now() - datetime.timedelta(minutes=4);
     startTime = datetime.datetime.now()
-    startTime.replace(hour=0, minute=0, second=0, microsecond=0)
+    startTime = startTime.replace(hour=0, minute=0, second=0, microsecond=0)
 
     url = 'https://api.binance.com/api/v3/klines?symbol=' + symbol + 'USDT&interval=1m' \
            + '&startTime=' + str(int(startTime.timestamp())) + '000' \
