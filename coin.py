@@ -27,7 +27,7 @@ def getPrice(symbol,ago):
            + '&startTime=' + str(int(startTime.timestamp())) + '000' \
            + '&endTime=' + str(int((startTime + datetime.timedelta(minutes=1)).timestamp()))+ '000'
     data = requests.get(url).json()
-    return {'open': data[0][2], 'volumn': data[0][5]}
+    return {'open': float(data[0][2]), 'volumn': data[0][5]}
 
 def getTime():
     pass
@@ -73,12 +73,13 @@ print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 buyPrice = 0.0000326677
 amount = 4000000
 data = requests.get(ada).json()
-pl = (float(data['price'])-buyPrice)*amount
+currentPrice=float(data['price'])
+pl = (currentPrice-buyPrice)*amount
 sellPrice = 0.000035
 exitPl = (sellPrice-buyPrice)*amount
-print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
+print(f"{data['symbol']} current price is {currentPrice} invested {buyPrice*amount} pl=f{pl} today diff=f{currentPrice/getPrice('ADA', 5).get('open')-1}%")
 dt5mins = datetime.datetime.now() - datetime.timedelta(minutes=5)
-print(f"{data['symbol']} 5min {dt5mins.strftime('%d-%m-%Y %H:%M:%S')} at {getPrice('ADA', 5).get('open')}")
+# print(f"{data['symbol']} 5min {dt5mins.strftime('%d-%m-%Y %H:%M:%S')} at {getPrice('ADA', 5).get('open')}")
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 
