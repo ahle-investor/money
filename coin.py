@@ -25,7 +25,7 @@ def getPrice(symbol,ago):
 
     url = 'https://api.binance.com/api/v3/klines?symbol=' + symbol + 'USDT&interval=1m' \
            + '&startTime=' + str(int(startTime.timestamp())) + '000' \
-           + '&endTime=' + str(int((startTime + - datetime.timedelta(minutes=1)).timestamp()))+ '000'
+           + '&endTime=' + str(int((startTime + datetime.timedelta(minutes=1)).timestamp()))+ '000'
     data = requests.get(url).json()
     return {'open': data[0][2], 'volumn': data[0][5]}
 
