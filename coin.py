@@ -71,7 +71,8 @@ pl = (float(data['price'])-buyPrice)*amount
 sellPrice = 0.000035
 exitPl = (sellPrice-buyPrice)*amount
 print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
-print(f"{data['symbol']} 5min at {getPrice('ADA', 5)}")
+dt5mins = datetime.datetime.now() - datetime.timedelta(minutes=5)
+print(f"{data['symbol']} 5min {dt5mins.format()} at {getPrice('ADA', 5)}")
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 
