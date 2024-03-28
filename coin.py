@@ -24,7 +24,7 @@ def getPrice(symbol,ago):
            + '&startTime=' + str(int(dt5min.timestamp())) + '000' \
            + '&endTime=' + str(int(dt4min.timestamp()))+ '000'
     data = requests.get(url).json()
-    return data[0][2]
+    return {'open': data[0][2], 'volumn': data[0][5]}
 
 def getTime():
     pass
