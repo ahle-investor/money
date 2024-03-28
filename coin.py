@@ -19,7 +19,7 @@ def getInfo():
 
 def getPrice(symbol,ago):
     dt5min = datetime.datetime.now() - datetime.timedelta(minutes=5);
-    url = 'https://api.binance.com/api/v3/klines?symbol' + symbol + 'USDT&interval=1m&startTime=' + str(dt5min.timestamp) + '&endTime=' + str(dt5min.timestamp)
+    url = 'https://api.binance.com/api/v3/klines?symbol=' + symbol + 'USDT&interval=1m&startTime=' + str(dt5min.timestamp) + '&endTime=' + str(dt5min.timestamp)
     data = requests.get(url).json()
     return data[0][2]
 
