@@ -92,7 +92,8 @@ pl = (float(data['price'])-buyPrice)*amount
 sellPrice = 1.22
 exitPl = (sellPrice-buyPrice)*amount
 print(f"{data['symbol']} current price is {currentPrice} invested {buyPrice*amount} pl=f{pl} today diff=f{currentPrice/getPrice('AGIX', 5).get('open')-1}%")
-print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
+print(f"{data['symbol']} stop limit at {currentPrice} pl={exitPl}")
+print(f"{getPrice('AGIX', 5)}")
 
 # XEC
 buyPrice = 0.000075*1.08
