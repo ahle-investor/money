@@ -75,7 +75,7 @@ sellPrice = 0.000035
 exitPl = (sellPrice-buyPrice)*amount
 print(f"{data['symbol']} current price is {data['price']} invested {buyPrice*amount} pl=f{pl}")
 dt5mins = datetime.datetime.now() - datetime.timedelta(minutes=5)
-print(f"{data['symbol']} 5min {dt5mins.strftime('%d-%m-%Y %H:%M:%S')} at {getPrice('ADA', 5)}")
+print(f"{data['symbol']} 5min {dt5mins.strftime('%d-%m-%Y %H:%M:%S')} at {getPrice('ADA', 5).get('open')}")
 print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 
 
