@@ -22,9 +22,12 @@ def getPrice(symbol,ago):
     dt4min = datetime.datetime.now() - datetime.timedelta(minutes=4);
     url = 'https://api.binance.com/api/v3/klines?symbol=' + symbol + 'USDT&interval=1m' \
            + '&startTime=' + str(int(dt5min.timestamp())) + '000' \
-            # + '&endTime=' + str(int(dt4min.timestamp()))
+           + '&endTime=' + str(int(dt4min.timestamp()))+ '000'
     data = requests.get(url).json()
     return data[0][2]
+
+def getTime():
+    pass
 
 data = requests.get(volumn24h).json()
 sum = 0
