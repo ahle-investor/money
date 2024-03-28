@@ -88,7 +88,8 @@ print(f"{data['symbol']} stop limit at {data['price']} pl={exitPl}")
 buyPrice = 1.2603
 amount = 56
 data = requests.get(agix).json()
-pl = (float(data['price'])-buyPrice)*amount
+currentPrice=float(data['price'])
+pl = (currentPrice-buyPrice)*amount
 sellPrice = 1.22
 exitPl = (sellPrice-buyPrice)*amount
 print(f"{data['symbol']} current price is {currentPrice} invested {buyPrice*amount} pl=f{pl} today diff=f{currentPrice/getPrice('AGIX', 5).get('open')-1}%")
